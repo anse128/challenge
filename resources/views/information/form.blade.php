@@ -32,9 +32,11 @@
     <label for="MarvelCharacter" class="control-label">{{ 'Marvel character' }}</label>
     <select class="form-select" aria-label="Default select example" name="MarvelCharacter" type="text" id="MarvelCharacter" value="{{ isset($information->MarvelCharacter) ? $information->MarvelCharacter : ''}}" >
         <option selected>Open this select menu</option>
-        <option value="1"></option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+
+        @foreach($characterArray['data']['results'] as $item)
+        <option value="1">{{$item['name']}}</option>
+        @endforeach
+        
     </select>
     {!! $errors->first('MarvelCharacter', '<p class="help-block">:message</p>') !!}
 </div>
@@ -42,19 +44,14 @@
     <label for="MarvelComic" class="control-label">{{ 'Marvel comic' }}</label>
     <select class="form-select" aria-label="Default select example" name="MarvelComic" type="text" id="MarvelComic" value="{{ isset($information->MarvelComic) ? $information->MarvelComic : ''}}" >
         <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+        
+        @foreach($comicArray['data']['results'] as $item)
+        <option value="1">{{$item['title']}}</option>
+        @endforeach
+        
     </select>
     {!! $errors->first('MarvelComic', '<p class="help-block">:message</p>') !!}
 </div>
-    <select class="form-select" aria-label="Default select example" type="text" >
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
-    </select>
-
 
 <div class="form-group">
     <input class="btn btn-primary" type="submit" value="{{ $formMode === 'edit' ? 'Update' : 'Create' }}">

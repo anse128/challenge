@@ -7,7 +7,7 @@ use App\Http\Requests;
 
 use App\Models\information;
 use Illuminate\Http\Request;
-
+use Http;
 class informationController extends Controller
 {
     /**
@@ -17,7 +17,6 @@ class informationController extends Controller
      */
     public function index(Request $request)
     {
-      
 
         $keyword = $request->get('search');
         $perPage = 25;
@@ -46,7 +45,13 @@ class informationController extends Controller
      */
     public function create()
     {
-        return view('information.create');
+        $comic = Http::get('http://gateway.marvel.com/v1/public/comics?ts=1&apikey=312c15483c1c0b5e3bd941a0f50406b5&hash=4ef43476a0ef716922a8883573d3c512');
+        $comicArray = $comic->json();
+
+        $character = Http::get('http://gateway.marvel.com/v1/public/characters?ts=1&apikey=312c15483c1c0b5e3bd941a0f50406b5&hash=4ef43476a0ef716922a8883573d3c512');
+        $characterArray = $character->json();
+
+        return view('information.create',compact('comicArray'),compact('characterArray'));
     }
 
     /**

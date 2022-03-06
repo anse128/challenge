@@ -68,7 +68,7 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Home</a>
+                        <a href="{{ url('/home') }}">Addinformation</a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -84,9 +84,6 @@
                     Marvel
                 </div>
 
-                <div class="links">
-                    <a href="/marvel/public/information">add information</a>
-                </div>
             </div>
         </div>
     </body>
