@@ -17,9 +17,7 @@ class informationController extends Controller
      */
     public function index(Request $request)
     {
-        $comic = Http::get('http://gateway.marvel.com/v1/public/comics?ts=1&apikey=312c15483c1c0b5e3bd941a0f50406b5&hash=4ef43476a0ef716922a8883573d3c512');
-        
-        $comicArray = $comic->json();
+      
 
         $keyword = $request->get('search');
         $perPage = 25;
@@ -38,7 +36,7 @@ class informationController extends Controller
             $information = information::latest()->paginate($perPage);
         }
 
-        return view('information.index', compact('information'),compact('comicArray'));
+        return view('information.index', compact('information'));
     }
 
     /**
