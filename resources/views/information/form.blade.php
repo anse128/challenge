@@ -30,7 +30,7 @@
 </div>
 <div class="form-group {{ $errors->has('MarvelCharacter') ? 'has-error' : ''}}">
     <label for="MarvelCharacter" class="control-label">{{ 'Marvel character' }}</label>
-    <select class="form-select" aria-label="Default select example" name="MarvelCharacter" type="text" id="MarvelCharacter" value="{{ isset($information->MarvelCharacter) ? $information->MarvelCharacter : ''}}" >
+    <select class="d-flex" class="form-select" aria-label="Default select example" name="MarvelCharacter" type="text" id="MarvelCharacter" value="{{ isset($information->MarvelCharacter) ? $information->MarvelCharacter : ''}}" >
         <option selected>Open this select menu</option>
 
         @foreach($characterArray['data']['results'] as $item)
@@ -42,7 +42,7 @@
 </div>
 <div class="form-group {{ $errors->has('MarvelComic') ? 'has-error' : ''}}">
     <label for="MarvelComic" class="control-label">{{ 'Marvel comic' }}</label>
-    <select class="form-select" aria-label="Default select example" name="MarvelComic" type="text" id="MarvelComic" value="{{ isset($information->MarvelComic) ? $information->MarvelComic : ''}}" >
+    <select class="d-flex" class="form-select" aria-label="Default select example" name="MarvelComic" type="text" id="MarvelComic" value="{{ isset($information->MarvelComic) ? $information->MarvelComic : ''}}" >
         <option selected>Open this select menu</option>
         
         @foreach($comicArray['data']['results'] as $item)
